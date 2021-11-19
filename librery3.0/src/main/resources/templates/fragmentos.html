@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Contenido de off canvas  -->
+<div th:fragment="offcanvas" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+        <h3 class="offcanvas-title">Libreria</h3>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            Sistema de gestion de libreria
+        </div>
+
+        <div class="dropdown mt-4">
+            <button 
+                class="btn btn-secondary dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" id="dropdownMenu"
+            >
+                Autor
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <li><a th:href="@{/autores}" class="dropdown-item">Mostrar lista de autores</a></li>
+                <li><a th:href="@{/autores/crear}" class="dropdown-item" sec:authorize="hasAnyRole('ADMIN','SUPERADMIN')">Ingresar nuevo autor</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown mt-4">
+            <button 
+                class="btn btn-secondary dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" id="dropdownMenu"
+            >
+                Editorial
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <li><a th:href="@{/editoriales}" class="dropdown-item">Mostrar lista de editoriales</a></li>
+                <li><a th:href="@{/editoriales/crear}" class="dropdown-item">Ingresar nueva editorial</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown mt-4">
+            <button 
+                class="btn btn-secondary dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" id="dropdownMenu"
+            >
+                Libro
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <li><a th:href="@{/libros}" class="dropdown-item">Mostrar lista de libros</a></li>
+                <li><a th:href="@{/libros/crear}" class="dropdown-item">Ingresar nuevo libro</a></li>
+            </ul>
+        </div>
+
+        <div class="dropdown mt-4">
+            <button 
+                class="btn btn-secondary dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" id="dropdownMenu"
+            >
+                Usuario
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <li><a th:href="@{/usuarios}" class="dropdown-item">Mostrar lista de usuarios</a></li>
+                <li><a th:href="@{/usuarios/crear}" class="dropdown-item" sec:authorize="hasAnyRole('ADMIN','SUPERADMIN')">Registrar usuario</a></li>
+                <li><a th:href="@{/usuarios/editar_user}" class="dropdown-item">Modificar datos de usuario</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- Contenido de off canvas, end.  -->
+
+<!-- FOOTER -->
+<footer th:fragment="footer" class="footer bg-dark fixed-bottom">
+    <div class="container d-flex justify-content-center">
+        <span class="text-muted">&copy; Maximiliano Meza - EGG - 2021</span>
+    </div>
+</footer>
+<!-- FIN FOOTER -->
+</html>
